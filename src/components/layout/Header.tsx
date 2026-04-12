@@ -41,9 +41,16 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="hidden md:flex">
-            <User className="h-5 w-5" />
-          </Button>
+          <Link to="/login">
+            <Button variant="ghost" size="sm" className="hidden md:flex">
+              Sign In
+            </Button>
+          </Link>
+          <Link to="/signup">
+            <Button size="sm" className="hidden md:flex">
+              Sign Up
+            </Button>
+          </Link>
 
           <Button
             variant="ghost"
