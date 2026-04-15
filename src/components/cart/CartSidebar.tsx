@@ -76,7 +76,7 @@ export function CartSidebar() {
                         </Button>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        ${item.price.toFixed(2)}
+                        ₹{item.price}
                       </p>
                       <div className="mt-auto flex items-center gap-2">
                         <Button
@@ -115,16 +115,16 @@ export function CartSidebar() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                   <span>₹{subtotal.toFixed(0)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Delivery Fee</span>
-                  <span>${deliveryFee.toFixed(2)}</span>
+                  <span>₹{deliveryFee.toFixed(0)}</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-semibold text-base">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>₹{total.toFixed(0)}</span>
                 </div>
               </div>
               <Button className="w-full" size="lg">
