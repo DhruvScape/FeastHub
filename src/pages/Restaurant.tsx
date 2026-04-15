@@ -110,9 +110,9 @@ export default function Restaurant() {
             </div>
 
             <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground border-t pt-4">
-              <span>${restaurant.deliveryFee.toFixed(2)} delivery</span>
+              <span>₹{restaurant.deliveryFee} delivery</span>
               <span>•</span>
-              <span>${restaurant.minOrder} minimum order</span>
+              <span>₹{restaurant.minOrder} minimum order</span>
             </div>
           </div>
         </div>

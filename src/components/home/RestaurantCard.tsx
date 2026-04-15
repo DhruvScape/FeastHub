@@ -60,7 +60,7 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
         </div>
 
         <div className="mt-2 text-sm text-muted-foreground">
-          ${restaurant.deliveryFee.toFixed(2)} delivery · ${restaurant.minOrder} min order
+          ₹{restaurant.deliveryFee} delivery · ₹{restaurant.minOrder} min order
         </div>
       </div>
     </Link>

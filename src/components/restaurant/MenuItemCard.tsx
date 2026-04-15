@@ -25,7 +25,7 @@ export function MenuItemCard({ item, restaurantId, restaurantName }: MenuItemCar
         <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
           {item.description}
         </p>
-        <p className="mt-auto pt-2 font-semibold">${item.price.toFixed(2)}</p>
+        <p className="mt-auto pt-2 font-semibold">₹{item.price}</p>
       </div>
 
       <div className="relative">
