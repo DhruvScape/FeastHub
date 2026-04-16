@@ -6,9 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +21,8 @@ export default function Login() {
     setIsLoading(true);
     // Simulate auth request
     await new Promise((resolve) => setTimeout(resolve, 1200));
+    const name = email.split("@")[0] || "Friend";
+    login({ name, email });
     toast.success("Welcome back!", { description: "Redirecting you home..." });
     setTimeout(() => navigate("/"), 600);
   };
