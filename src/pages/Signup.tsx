@@ -1,21 +1,29 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Eye, EyeOff, Mail, Lock, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Eye, EyeOff, Mail, Lock, User, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "sonner";
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Integrate with backend auth
-    console.log("Signup:", { name, email, password });
+    setIsLoading(true);
+    // Simulate signup request
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    toast.success(`Welcome, ${name.split(" ")[0] || "friend"}!`, {
+      description: "Your account is ready. Taking you home...",
+    });
+    setTimeout(() => navigate("/"), 700);
   };
 
   return (
@@ -154,8 +162,19 @@ export default function Signup() {
               </Label>
             </div>
 
-            <Button type="submit" className="w-full h-11 text-base font-semibold">
-              Create account
+            <Button
+              type="submit"
+              className="w-full h-11 text-base font-semibold"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Creating account...
+                </>
+              ) : (
+                "Create account"
+              )}
             </Button>
           </form>
 
