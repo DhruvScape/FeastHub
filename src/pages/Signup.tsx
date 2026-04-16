@@ -6,9 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Signup() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,6 +22,7 @@ export default function Signup() {
     setIsLoading(true);
     // Simulate signup request
     await new Promise((resolve) => setTimeout(resolve, 1500));
+    login({ name: name || "Friend", email });
     toast.success(`Welcome, ${name.split(" ")[0] || "friend"}!`, {
       description: "Your account is ready. Taking you home...",
     });
